@@ -10,6 +10,8 @@ import (
 	"github.com/Zac-Garby/social-network/user"
 )
 
+// ErrUsernameInUse is returned when a user's username cannot be changed, because
+// someone else already has the username they want to change to.
 var ErrUsernameInUse = errors.New("change username: username already in use")
 
 func (s *Server) handleLogIn(w http.ResponseWriter, r *http.Request) {
