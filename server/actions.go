@@ -1,6 +1,7 @@
 package server
 
 import (
+	"errors"
 	"fmt"
 	"net/http"
 
@@ -8,6 +9,8 @@ import (
 	"github.com/Zac-Garby/social-network/session"
 	"github.com/Zac-Garby/social-network/user"
 )
+
+var ErrUsernameInUse = errors.New("change username: username already in use")
 
 func (s *Server) handleLogIn(w http.ResponseWriter, r *http.Request) {
 	var (
@@ -83,4 +86,53 @@ func (s *Server) handleAddProject(w http.ResponseWriter, r *http.Request) {
 	}
 
 	http.Redirect(w, r, fmt.Sprintf("/p/%d", proj.ID), http.StatusSeeOther)
+}
+
+func (s *Server) handleEditProfile(w http.ResponseWriter, r *http.Request) {
+	var (
+		username    = r.PostFormValue("username")
+		displayname = r.PostFormValue("displayname")
+		profilePic  = r.PostFormValue("profilepicture")
+	)
+
+	current, err := getLoggedInUser(s.Database, r)
+	if err != nil {
+		handleError(err, w, r)
+		return
+	}
+
+	if len(username) < 1 {
+		username = current.Username
+	}
+
+	if len(displayname) < 1 {
+		displayname = current.DisplayName
+	}
+
+	if len(profilePic) < 1 {
+		profilePic = current.ProfilePicture
+	}
+
+	old, err := user.GetUserByUsername(s.Database, username)
+
+	// User already exists with new username
+	if err == nil && old.ID != current.ID {
+		handleError(ErrUsernameInUse, w, r)
+		return
+	}
+
+	newUser := &user.User{
+		ID: current.ID,
+
+		Username:       username,
+		DisplayName:    displayname,
+		ProfilePicture: profilePic,
+	}
+
+	if err := user.Update(s.Database, newUser); err != nil {
+		handleError(err, w, r)
+		return
+	}
+
+	http.Redirect(w, r, fmt.Sprintf("/u/%s", newUser.Username), http.StatusSeeOther)
 }

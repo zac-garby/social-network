@@ -110,6 +110,28 @@ func Login(db *sql.DB, username, password string) (*User, error) {
 	return nil, ErrWrongPassword
 }
 
+// Update updates the user name, display name, and profile
+// picture fields of the specified user.
+func Update(db *sql.DB, u *User) error {
+	stmt, err := db.Prepare(`
+	UPDATE users
+	SET user_name = ?,
+		display_name = ?,
+		profile_picture = ?
+	WHERE users.user_id = ?`)
+
+	if err != nil {
+		return err
+	}
+
+	_, err = stmt.Exec(u.Username, u.DisplayName, u.ProfilePicture, u.ID)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func hash(str string) (string, error) {
 	hasher := sha512.New()
 	_, err := hasher.Write([]byte(str))

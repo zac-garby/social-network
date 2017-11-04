@@ -31,13 +31,14 @@ func (s *Server) Start(addr string) {
 	r.HandleFunc("/login", s.handleLoginPage)
 	r.HandleFunc("/u/{user}", s.handleUserPage)
 	r.HandleFunc("/p/{page}", s.handleProjectPage)
-	r.HandleFunc("/new", s.handleNewProject)
-	r.HandleFunc("/edit/u", s.handleEditProfile)
+	r.HandleFunc("/new", s.handleNewProjectPage)
+	r.HandleFunc("/edit/u", s.handleEditProfilePage)
 
 	// Form actions
 	r.HandleFunc("/log-in", s.handleLogIn).Methods("POST")
 	r.HandleFunc("/sign-up", s.handleSignUp).Methods("POST")
 	r.HandleFunc("/add-project", s.handleAddProject).Methods("POST")
+	r.HandleFunc("/edit-profile", s.handleEditProfile).Methods("POST")
 
 	http.Handle("/", r)
 

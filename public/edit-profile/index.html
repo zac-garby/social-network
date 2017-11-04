@@ -26,7 +26,7 @@
 
             <hr />
 
-            <form action="" method="post">
+            <form action="/edit-profile" method="post">
                 <label for="displayname">Display name:</label>
                 <input class="sm" type="text" name="displayname" placeholder="{{.User.DisplayName}}" />
 
@@ -34,7 +34,7 @@
                 <input class="sm" type="text" name="username" placeholder="{{.User.Username}}" />
 
                 <label for="username">Profile Picture:</label>
-                <input class="sm" type="text" name="username" placeholder="{{.User.ProfilePicture}}" />
+                <input class="sm" type="text" name="profilepicture" placeholder="{{.User.ProfilePicture}}" />
 
                 <input type="submit" value="Submit">
             </form>

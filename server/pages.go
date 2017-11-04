@@ -116,7 +116,7 @@ func (s *Server) handleProjectPage(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func (s *Server) handleNewProject(w http.ResponseWriter, r *http.Request) {
+func (s *Server) handleNewProjectPage(w http.ResponseWriter, r *http.Request) {
 	type Data struct {
 		LoggedIn *user.User
 	}
@@ -132,7 +132,7 @@ func (s *Server) handleNewProject(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func (s *Server) handleEditProfile(w http.ResponseWriter, r *http.Request) {
+func (s *Server) handleEditProfilePage(w http.ResponseWriter, r *http.Request) {
 	type Data struct {
 		User *user.User
 	}
