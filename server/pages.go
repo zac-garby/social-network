@@ -115,3 +115,19 @@ func (s *Server) handleProjectPage(w http.ResponseWriter, r *http.Request) {
 		LoggedIn:     loggedIn,
 	})
 }
+
+func (s *Server) handleNewProject(w http.ResponseWriter, r *http.Request) {
+	type Data struct {
+		LoggedIn *user.User
+	}
+
+	loggedIn, err := getLoggedInUser(s.Database, r)
+	if err != nil {
+		handleError(err, w, r)
+		return
+	}
+
+	handleRequest(w, "new-project", "new-project", "/new-project", Data{
+		LoggedIn: loggedIn,
+	})
+}
