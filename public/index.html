@@ -11,11 +11,7 @@
         <link rel="stylesheet" href="../public/styles/index.css">
     </head>
     <body>
-        <nav>
-            <span>Logged in as {{ .LoggedIn.DisplayName }}</span>
-            <a href="/login">Log in/Sign up</a>                
-            <a href="/">Home</a>
-        </nav>
+        {{ template "nav" .LoggedIn }}
 
         <div class="wrapper">
             <ul class="projects">

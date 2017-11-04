@@ -11,7 +11,11 @@ import (
 
 func handleRequest(w http.ResponseWriter, name, base, req string, data interface{}) {
 	if len(req) <= len(base)+2 {
-		t, err := template.New(name).ParseFiles(filepath.Join("public", base, "index.html"))
+		t, err := template.New(name).ParseFiles(
+			filepath.Join("public", "nav", "index.html"),
+			filepath.Join("public", base, "index.html"),
+		)
+
 		if err != nil {
 			log.Println(err)
 			return
