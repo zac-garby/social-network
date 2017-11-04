@@ -36,6 +36,7 @@ func (s *Server) Start(addr string) {
 	// Form actions
 	r.HandleFunc("/log-in", s.handleLogIn).Methods("POST")
 	r.HandleFunc("/sign-up", s.handleSignUp).Methods("POST")
+	r.HandleFunc("/add-project", s.handleAddProject).Methods("POST")
 
 	http.Handle("/", r)
 
