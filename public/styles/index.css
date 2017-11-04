@@ -107,6 +107,13 @@ nav span {
     background-color: transparent;
 }
 
+nav span.left {
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-style: oblique;
+}
+
 hr {
     margin-top: 35px;
     margin-bottom: 35px;
