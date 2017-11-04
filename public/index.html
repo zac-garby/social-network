@@ -1,0 +1,44 @@
+{{ define "index" }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Social Network</title>
+
+        <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../public/styles/index.css">
+    </head>
+    <body>
+        <nav>
+            <span>Logged in as {{ .LoggedIn.DisplayName }}</span>
+            <a href="/login">Log in/Sign up</a>                
+            <a href="/">Home</a>
+        </nav>
+
+        <div class="wrapper">
+            <ul class="projects">
+                <li class="title">All Projects:</li>
+
+                {{ range .Projects }}
+                    <li
+                        class="project-panel"
+                        title="{{.TextContent}}"
+                        onclick="location.href = '/p/{{.ID}}'">
+
+                        <img
+                            class="rounded pp-small"
+                            style="background-image: url({{.AuthorPicture}});"
+                            src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" />
+                        
+                        <span class="title">{{ .Title }}</span>
+                        &mdash;
+                        <span class="description">{{ .Description }}</span>
+                    </li>
+                {{ end }}
+            </ul>
+        </div>
+    </body>
+</html>
+{{ end }}

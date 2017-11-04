@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Roboto:400,700');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    color: rgb(56, 56, 56);
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+div.wrapper {
+    margin: 100px;
+    padding: 50px;
+    border-radius: 5px;
+    background-color: rgb(249, 249, 249);
+    word-wrap: normal;
+}
+
+img.pp-large {
+    width: 2.5em;
+    height: 2.5em;
+
+    background-color: white;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+img.pp-small {
+    height: 40px;
+    width: 40px;
+    
+    background-color: white;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+ul.projects {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+
+ul.projects li.title {
+    padding: 15px;
+    font-size: 30pt;
+    margin-bottom: 15px;
+}
+
+li.project-panel {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+li.project-panel:hover {
+    background-color: rgba(54, 119, 230, 0.125);
+}
+
+li.project-panel .pp-small {
+    margin-right: 15px;
+}
+
+span.title {
+    font-weight: bold;
+}
+
+nav {
+    background-color: rgba(54, 119, 230, 0.125);
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+nav a, nav span {
+    background-color: rgba(54, 119, 230, 0.05);
+    color: rgb(101, 121, 155);
+    text-decoration: none;
+    margin-left: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 3em;
+    line-height: 3em;
+}
+
+nav span {
+    background-color: transparent;
+}
+
+hr {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    border: 1px solid rgb(216, 216, 216);
+}
+
+pre {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.1em;
+
+    font-family: 'Inconsolata', monospace;
+}
+
+code {
+    font-family: 'Inconsolata', monospace;
+}

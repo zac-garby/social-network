@@ -1,0 +1,50 @@
+{{ define "user" }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{ .User.Username }}</title>
+
+        <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">        
+        <link rel="stylesheet" href="../public/styles/index.css">
+        <link rel="stylesheet" href="../public/user/styles/index.css">
+    </head>
+    <body>
+        <nav>
+            <span>Logged in as {{ .LoggedIn.DisplayName }}</span>                
+            <a href="/login">Log in/Sign up</a>                
+            <a href="/">Home</a>
+        </nav>
+
+        <div class="wrapper">
+            <h1>
+                <img
+                    class="rounded pp-large"
+                    style="background-image: url({{.User.ProfilePicture}});"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" />
+
+                {{ .User.DisplayName }}
+                <span class="username">~{{ .User.Username }}</span>
+            </h1>
+
+            <hr />
+
+            <ul class="projects">
+                {{ range .Projects }}
+                    <li
+                        class="project-panel"
+                        title="{{.TextContent}}"
+                        onclick="location.href = '/p/{{.ID}}'">
+
+                        <span class="title">{{ .Title }}</span>
+                        &mdash;
+                        <span class="description">{{ .Description }}</span>
+                    </li>
+                {{ end }}
+            </ul>
+        </div>
+    </body>
+</html>
+{{ end }}

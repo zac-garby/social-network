@@ -1,0 +1,20 @@
+div.wrapper h1:first-child {
+    margin-top: 0;
+    font-size: 35pt;
+}
+
+span.username {
+    color: rgb(150, 150, 150);
+    margin-left: 20px;
+    font-weight: normal;
+}
+
+h1 img {
+    float: right;
+}
+
+hr {
+    width: calc(100% - 2.5em - 100px);
+    position: relative;
+    right: 25px;
+}

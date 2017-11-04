@@ -1,0 +1,46 @@
+{{ define "login" }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login</title>
+
+        <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../public/styles/index.css">
+        <link rel="stylesheet" href="../public/login/styles/index.css">
+    </head>
+    <body>
+        <nav>
+            <a href="/login">Log in/Sign up</a>
+            <a href="/">Home</a>
+        </nav>
+        
+        <table class="login-wrapper">
+            <td>
+                <h1>Log in</h1>
+                
+                <form action="/log-in" method="post">
+                    <input type="text" placeholder="Username" name="username" required> <br />
+                    <input type="password" placeholder="Password" name="password" required> <br />
+    
+                    <input type="submit" value="Log in"> <br />
+                </form>
+            </td>
+
+            <td>
+                <h1>Sign up</h1>
+                
+                <form action="/sign-up" method="post">
+                    <input type="text" placeholder="Username (alpha-numeric, ., -, _)" name="username" required> <br />
+                    <input type="text" placeholder="Display name" name="displayname" required> <br />
+                    <input type="password" placeholder="Password" name="password" required> <br />
+    
+                    <input type="submit" value="Sign up"> <br />
+                </form>
+            </td>
+        </table>
+    </body>
+</html>
+{{ end }}

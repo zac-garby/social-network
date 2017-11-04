@@ -1,0 +1,28 @@
+h1:first-child {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-weight: normal;
+    color: rgb(150, 150, 150);
+}
+
+h1 span.title {
+    font-weight: bold;
+    color: rgb(56, 56, 56);
+}
+
+h2 {
+    margin-top: 30px;
+    color: rgb(150, 150, 150);
+    font-weight: normal;
+}
+
+h2 a {
+    color: rgb(150, 150, 150);
+}
+
+div.content *:last-child {
+    margin-bottom: 0;
+}
