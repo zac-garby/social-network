@@ -116,7 +116,7 @@ func (s *Server) handleProjectPage(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func (s *Server) handleNewProject(w http.ResponseWriter, r *http.Request) {
+func (s *Server) handleNewProjectPage(w http.ResponseWriter, r *http.Request) {
 	type Data struct {
 		LoggedIn *user.User
 	}
@@ -129,5 +129,21 @@ func (s *Server) handleNewProject(w http.ResponseWriter, r *http.Request) {
 
 	handleRequest(w, "new-project", "new-project", "/new-project", Data{
 		LoggedIn: loggedIn,
+	})
+}
+
+func (s *Server) handleEditProfilePage(w http.ResponseWriter, r *http.Request) {
+	type Data struct {
+		User *user.User
+	}
+
+	u, err := getLoggedInUser(s.Database, r)
+	if err != nil {
+		handleError(err, w, r)
+		return
+	}
+
+	handleRequest(w, "edit-profile", "edit-profile", "/edit-profile", Data{
+		User: u,
 	})
 }

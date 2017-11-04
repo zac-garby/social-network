@@ -2,12 +2,12 @@
 <nav>
     <span class="left">Social Network</span>
 
-    <span>Logged in as {{ .DisplayName }}</span>    
+    <span>Logged in as <a href="/u/{{.Username}}">{{ .DisplayName }}</a></span>    
     
     <a href="/">Home</a>
     <a href="/new">New Project</a>
     <a href="/login">Log out</a>
-    <a href="/u/{{.Username}}">~{{ .Username }}</a>
+    <a href="/edit/u">Edit Profile</a>
 
     <span></span>
     <a href="https://github.com/Zac-Garby/social-network">GitHub</a>    
