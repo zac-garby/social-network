@@ -12,7 +12,6 @@ It's almost completely functional. It's current features include:
 
 There are a few things left to do:
 
- - Changing your profile picture
  - Adding links to a project, e.g. GitHub
  - Custom CSS on your project's page
  - Maybe even custom HTML
