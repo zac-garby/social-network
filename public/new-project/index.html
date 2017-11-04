@@ -1,0 +1,25 @@
+{{ define "new-project" }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>New Project</title>
+
+        <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../public/styles/index.css">
+    </head>
+    <body>
+        <nav>
+            <span>Logged in as {{ .LoggedIn.DisplayName }}</span>
+            <a href="/login">Log in/Sign up</a>                
+            <a href="/">Home</a>
+        </nav>
+
+        <div class="wrapper">
+            <h1>New Project</h1>
+        </div>
+    </body>
+</html>
+{{ end }}
