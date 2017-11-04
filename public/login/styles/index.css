@@ -24,6 +24,9 @@ input {
 input[type=submit] {
     cursor: pointer;
     background-color: rgb(250, 250, 250);
+    width: 300px;
+    margin-top: 15px;
+    color: grey;
 }
 
 input:focus {
