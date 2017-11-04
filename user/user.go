@@ -113,6 +113,10 @@ func Login(db *sql.DB, username, password string) (*User, error) {
 // Update updates the user name, display name, and profile
 // picture fields of the specified user.
 func Update(db *sql.DB, u *User) error {
+	if err := u.Validate(); err != nil {
+		return err
+	}
+
 	stmt, err := db.Prepare(`
 	UPDATE users
 	SET user_name = ?,

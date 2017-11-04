@@ -26,6 +26,16 @@ func CreateUser(db *sql.DB, username, displayname, password, profilePicture stri
 		return nil, err
 	}
 
+	// A Temporary User to check if the fields are valid.
+	u := &User{
+		Username:    username,
+		DisplayName: displayname,
+	}
+
+	if err := u.Validate(); err != nil {
+		return nil, err
+	}
+
 	hashed, err := hash(password)
 	if err != nil {
 		return nil, err
