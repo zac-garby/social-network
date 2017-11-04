@@ -131,3 +131,19 @@ func (s *Server) handleNewProject(w http.ResponseWriter, r *http.Request) {
 		LoggedIn: loggedIn,
 	})
 }
+
+func (s *Server) handleEditProfile(w http.ResponseWriter, r *http.Request) {
+	type Data struct {
+		User *user.User
+	}
+
+	u, err := getLoggedInUser(s.Database, r)
+	if err != nil {
+		handleError(err, w, r)
+		return
+	}
+
+	handleRequest(w, "edit-profile", "edit-profile", "/edit-profile", Data{
+		User: u,
+	})
+}

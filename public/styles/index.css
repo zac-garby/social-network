@@ -129,7 +129,6 @@ pre {
     padding: 15px;
     border-radius: 5px;
     font-size: 1.1em;
-
     font-family: 'Inconsolata', monospace;
 }
 
@@ -139,4 +138,44 @@ code {
 
 input, textarea {
     outline: none;
+}
+
+input, textarea {
+    width: 100%;
+    display: block;
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 500px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 14pt;
+    resize: vertical;
+}
+
+textarea#description {
+    height: 3em;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type=submit] {
+    cursor: pointer;
+    margin-top: 50px;
+    margin-bottom: 0;
+    width: 500px;
+    background-color: rgba(54, 119, 230, 0.125);
+    color: rgb(101, 121, 155);    
+}
+
+input.sm {
+    width: 600px;
+}
+
+label {
+    font-size: 14pt;
 }

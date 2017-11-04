@@ -1,0 +1,44 @@
+{{ define "edit-profile" }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Edit {{ .User.Username }}</title>
+
+        <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">        
+        <link rel="stylesheet" href="../public/styles/index.css">
+        <link rel="stylesheet" href="../public/user/styles/index.css">
+    </head>
+    <body>
+        {{ template "nav" .User }}
+
+        <div class="wrapper">
+            <h1>
+                <div class="pp-large">
+                    <img src="{{.User.ProfilePicture}}">
+                </div>
+
+                Editing your profile
+                <span class="username">(~{{ .User.Username }})</span>
+            </h1>
+
+            <hr />
+
+            <form action="" method="post">
+                <label for="displayname">Display name:</label>
+                <input class="sm" type="text" name="displayname" placeholder="{{.User.DisplayName}}" />
+
+                <label for="username">Username:</label>
+                <input class="sm" type="text" name="username" placeholder="{{.User.Username}}" />
+
+                <label for="username">Profile Picture:</label>
+                <input class="sm" type="text" name="username" placeholder="{{.User.ProfilePicture}}" />
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>
+{{ end }}

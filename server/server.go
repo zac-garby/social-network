@@ -32,6 +32,7 @@ func (s *Server) Start(addr string) {
 	r.HandleFunc("/u/{user}", s.handleUserPage)
 	r.HandleFunc("/p/{page}", s.handleProjectPage)
 	r.HandleFunc("/new", s.handleNewProject)
+	r.HandleFunc("/edit/u", s.handleEditProfile)
 
 	// Form actions
 	r.HandleFunc("/log-in", s.handleLogIn).Methods("POST")
