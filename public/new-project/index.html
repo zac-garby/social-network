@@ -9,12 +9,26 @@
 
         <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="../public/styles/index.css">
+        <link rel="stylesheet" href="../public/new-project/styles/index.css">
     </head>
     <body>
         {{ template "nav" .LoggedIn }}
 
         <div class="wrapper">
             <h1>New Project</h1>
+
+            <form action="/add-project" method="post">
+                <label for="title">Title (&le; 75 chars):</label>
+                <input type="text" name="title" minlength="1" maxlength="75" />
+
+                <label for="description">Short description (&le; 100 chars):</label>
+                <textarea name="description" id="description" minlength="1" maxlength="100"></textarea>
+
+                <label for="content">Content (markdown enabled) (&le; 15000 chars):</label>
+                <textarea name="content" id="content" minlength="1" maxlength="15000"></textarea>
+
+                <input type="submit" value="Submit">
+            </form>
         </div>
     </body>
 </html>
