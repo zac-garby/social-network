@@ -57,6 +57,14 @@ func (s *Server) handleAddProject(w http.ResponseWriter, r *http.Request) {
 		content     = r.PostFormValue("content")
 	)
 
+	if len(title) < 1 || len(title) > 75 ||
+		len(description) < 1 || len(description) > 100 ||
+		len(content) < 1 || len(content) > 15000 {
+
+		http.Redirect(w, r, "/new", http.StatusSeeOther)
+		return
+	}
+
 	u, err := getLoggedInUser(s.Database, r)
 	if err != nil {
 		handleError(err, w, r)
