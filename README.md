@@ -79,7 +79,7 @@ After you've made the database, get the code with:
 go get -u github.com/Zac-Garby/social-network
 ```
 
-If you're using MAMP to host your database, and you're on macOS, the current SQL server location _should_ be fine (`root:root@unix(/Applications/MAMP/tmp/mysql/mysql.sock)/social-network`). If this doesn't work (tells you that the file cannot be found) or you're not using MAMP on macOS, you'll have to find where the Unix Socket file is for your database, or connect to it a different way (e.g. TCP). Edit the string in _main.go_ to whatever you need for it to connect.
+If you're using MAMP to host your database, and you're on macOS, the current SQL server location _should_ be fine (`root:root@unix(/Applications/MAMP/tmp/mysql/mysql.sock)/social-network`). If this doesn't work (tells you that the file cannot be found) or you're not using MAMP on macOS, you'll have to find where the Unix Socket file is for your database, or connect to it a different way (e.g. TCP). Edit the string in _main.go_ to whatever you need for it to connect. The default also assumes you named your database _social-network_.
 
 Once you've done that, everything should work. Navigate to the root of the source directory in a terminal, and run:
 
