@@ -92,7 +92,7 @@ nav {
     padding-right: 1em;
 }
 
-nav a, nav span {
+nav > a, nav > span {
     background-color: rgba(54, 119, 230, 0.05);
     color: rgb(101, 121, 155);
     text-decoration: none;
@@ -103,11 +103,15 @@ nav a, nav span {
     line-height: 3em;
 }
 
-nav span {
+a {
+    color: rgb(81, 97, 124);
+}
+
+nav > span {
     background-color: transparent;
 }
 
-nav span.left {
+nav > span.left {
     position: absolute;
     left: 0;
     font-weight: bold;
@@ -125,7 +129,6 @@ pre {
     padding: 15px;
     border-radius: 5px;
     font-size: 1.1em;
-
     font-family: 'Inconsolata', monospace;
 }
 
@@ -135,4 +138,44 @@ code {
 
 input, textarea {
     outline: none;
+}
+
+input, textarea {
+    width: 100%;
+    display: block;
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 500px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 14pt;
+    resize: vertical;
+}
+
+textarea#description {
+    height: 3em;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type=submit] {
+    cursor: pointer;
+    margin-top: 50px;
+    margin-bottom: 0;
+    width: 500px;
+    background-color: rgba(54, 119, 230, 0.125);
+    color: rgb(101, 121, 155);    
+}
+
+input.sm {
+    width: 600px;
+}
+
+label {
+    font-size: 14pt;
 }
