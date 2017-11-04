@@ -16,7 +16,8 @@ There are a few things left to do:
  - Adding links to a project, e.g. GitHub
  - Custom CSS on your project's page
  - Maybe even custom HTML
- - Host it somewhere?
+ - Host it somewhere (possible Heroku)?
+ - Improve security: use secure cookies, hash password before sending it to the server, etc...
 
 ![](stuff/project.png)
 
