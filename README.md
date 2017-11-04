@@ -90,7 +90,7 @@ go run main.go
 
 Which will start the web server. Then, go to [localhost:8080](localhost:8080). It should give you the login screen, from which you can create a new account or log in.
 
-~[](stuff/login.png)
+![](stuff/login.png)
 
 ## Problems
 
