@@ -92,7 +92,7 @@ nav {
     padding-right: 1em;
 }
 
-nav a, nav span {
+nav > a, nav > span {
     background-color: rgba(54, 119, 230, 0.05);
     color: rgb(101, 121, 155);
     text-decoration: none;
@@ -103,11 +103,15 @@ nav a, nav span {
     line-height: 3em;
 }
 
-nav span {
+a {
+    color: rgb(81, 97, 124);
+}
+
+nav > span {
     background-color: transparent;
 }
 
-nav span.left {
+nav > span.left {
     position: absolute;
     left: 0;
     font-weight: bold;
