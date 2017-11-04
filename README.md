@@ -5,13 +5,13 @@ This is quite a simple social network, for me to learn HTTP programming in Go, a
 It's almost completely functional. It's current features include:
 
  - Creating an account
+ - Adding a project
  - Logging in
  - Viewing a list of all projects
  - Viewing a single project's page
 
-There are a few important things left to do:
+There are a few things left to do:
 
- - Adding a new project
  - Changing your profile picture
  - Adding links to a project, e.g. GitHub
  - Custom CSS on your project's page
@@ -33,7 +33,7 @@ CREATE TABLE `projects` (
   `title` tinytext NOT NULL,
   `description` text NOT NULL,
   `content` text NOT NULL,
-  `date_created` date NOT NULL,
+  `date_created` datetime NOT NULL,
   `author` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
@@ -71,7 +71,7 @@ ALTER TABLE `users`
 
 I've also put this code [here](stuff/schema.sql), for easy importing.
 
-This will create the three necessary tables: _projects_, _sessions_, and _users_, but won't add any rows to them. Therefore, since you can't yet create projects from the actual app, you'll have to add some manually.
+This will create the three necessary tables: _projects_, _sessions_, and _users_, but won't add any rows to them.
 
 After you've made the database, get the code with:
 

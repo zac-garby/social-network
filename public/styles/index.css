@@ -121,3 +121,7 @@ pre {
 code {
     font-family: 'Inconsolata', monospace;
 }
+
+input, textarea {
+    outline: none;
+}

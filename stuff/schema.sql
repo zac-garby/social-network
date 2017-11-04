@@ -6,7 +6,7 @@ CREATE TABLE `projects` (
   `title` tinytext NOT NULL,
   `description` text NOT NULL,
   `content` text NOT NULL,
-  `date_created` date NOT NULL,
+  `date_created` datetime NOT NULL,
   `author` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
