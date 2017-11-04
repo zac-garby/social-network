@@ -23,10 +23,9 @@
                         title="{{.TextContent}}"
                         onclick="location.href = '/p/{{.ID}}'">
 
-                        <img
-                            class="rounded pp-small"
-                            style="background-image: url({{.AuthorPicture}});"
-                            src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" />
+                        <div class="pp-small">
+                            <img src="{{.AuthorPicture}}">
+                        </div>
                         
                         <span class="title">{{ .Title }}</span>
                         &mdash;

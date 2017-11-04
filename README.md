@@ -89,14 +89,9 @@ go run main.go
 
 Which will start the web server. Then, go to [localhost:8080](localhost:8080). It should give you the login screen, from which you can create a new account or log in.
 
-## A few problems on Firefox
+## Problems
 
-If you want to use Firefox, I wouldn't reccomend it. Until I fix it, on Firefox:
-
- - The login screen is messed up.
- - Profile pictures don't load properly.
-
-It's possible this is only firefox on Linux, and it might also happen on other browsers too.
+If you want to use Firefox, I wouldn't recommend it. Until I fix it, on Firefox, the login screen is messed up, i.e. the login/signup forms aren't centered vertically. I'll probably fix this quite soon.
 
 # Contributing
 

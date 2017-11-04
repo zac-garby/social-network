@@ -22,24 +22,28 @@ div.wrapper {
     word-wrap: normal;
 }
 
-img.pp-large {
-    width: 2.5em;
-    height: 2.5em;
-
+div.pp-small {
+    width: 40px;
+    height: 40px;
     background-color: white;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+    position: relative;
 }
 
-img.pp-small {
-    height: 40px;
-    width: 40px;
-    
+div.pp-large {
+    width: 2.5em;
+    height: 2.5em;
     background-color: white;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+    position: relative;
+}
+
+div.pp-small img, div.pp-large img {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 ul.projects {

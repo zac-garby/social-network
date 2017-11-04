@@ -16,10 +16,9 @@
 
         <div class="wrapper">
             <h1>
-                <img
-                    class="rounded pp-large"
-                    style="background-image: url({{.User.ProfilePicture}});"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" />
+                <div class="pp-large">
+                    <img src="{{.User.ProfilePicture}}">
+                </div>
 
                 {{ .User.DisplayName }}
                 <span class="username">~{{ .User.Username }}</span>
