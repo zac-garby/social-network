@@ -62,6 +62,7 @@ func GetAll(db *sql.DB) ([]*Project, error) {
 	FROM projects
 	INNER JOIN users
 	ON projects.author = users.user_id
+	ORDER BY projects.date_created DESC
 	`)
 }
 
@@ -73,7 +74,8 @@ func GetAllByUser(db *sql.DB, username string) ([]*Project, error) {
 	FROM projects
 	INNER JOIN users
 	ON projects.author = users.user_id
-	WHERE users.user_name = ?`, username)
+	WHERE users.user_name = ?
+	ORDER BY projects.date_created DESC`, username)
 }
 
 // GetByID returns the project whose project_id
