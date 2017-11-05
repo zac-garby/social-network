@@ -95,6 +95,12 @@ func (s *Server) handleEditProfile(w http.ResponseWriter, r *http.Request) {
 		username    = r.PostFormValue("username")
 		displayname = r.PostFormValue("displayname")
 		profilePic  = r.PostFormValue("profilepicture")
+		ghUsername  = r.PostFormValue("gh-user")
+		homepage    = r.PostFormValue("homepage")
+		url1name    = r.PostFormValue("linkname-1")
+		url1        = r.PostFormValue("url-1")
+		url2name    = r.PostFormValue("linkname-2")
+		url2        = r.PostFormValue("url-2")
 	)
 
 	current, err := getLoggedInUser(s.Database, r)
@@ -103,17 +109,23 @@ func (s *Server) handleEditProfile(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if len(username) < 1 {
-		username = current.Username
+	either := func(a, b string) string {
+		if len(a) < 1 {
+			return b
+		}
+
+		return a
 	}
 
-	if len(displayname) < 1 {
-		displayname = current.DisplayName
-	}
-
-	if len(profilePic) < 1 {
-		profilePic = current.ProfilePicture
-	}
+	username = either(username, current.Username)
+	displayname = either(displayname, current.DisplayName)
+	profilePic = either(profilePic, current.ProfilePicture)
+	ghUsername = either(ghUsername, current.GithubUsername)
+	homepage = either(homepage, current.HomepageURL)
+	url1name = either(url1name, current.Link1Name)
+	url1 = either(url1, current.Link1URL)
+	url2name = either(url2name, current.Link2Name)
+	url2 = either(url2, current.Link2URL)
 
 	old, err := user.GetUserByUsername(s.Database, username)
 
@@ -129,6 +141,12 @@ func (s *Server) handleEditProfile(w http.ResponseWriter, r *http.Request) {
 		Username:       username,
 		DisplayName:    displayname,
 		ProfilePicture: profilePic,
+		GithubUsername: ghUsername,
+		HomepageURL:    homepage,
+		Link1Name:      url1name,
+		Link1URL:       url1,
+		Link2Name:      url2name,
+		Link2URL:       url2,
 	}
 
 	if err := user.Update(s.Database, newUser); err != nil {

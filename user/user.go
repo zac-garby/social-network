@@ -146,14 +146,33 @@ func Update(db *sql.DB, u *User) error {
 	UPDATE users
 	SET user_name = ?,
 		display_name = ?,
-		profile_picture = ?
+		profile_picture = ?,
+		github_username = ?,
+		homepage_url = ?,
+		link_1 = ?,
+		link1_name = ?,
+		link_2 = ?,
+		link2_name = ?
 	WHERE users.user_id = ?`)
 
 	if err != nil {
 		return err
 	}
 
-	_, err = stmt.Exec(u.Username, u.DisplayName, u.ProfilePicture, u.ID)
+	_, err = stmt.Exec(
+		u.Username,
+		u.DisplayName,
+		u.ProfilePicture,
+		u.GithubUsername,
+		u.HomepageURL,
+		u.Link1URL,
+		u.Link1Name,
+		u.Link2URL,
+		u.Link2Name,
+
+		u.ID,
+	)
+
 	if err != nil {
 		return err
 	}
