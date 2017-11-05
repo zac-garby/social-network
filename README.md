@@ -9,67 +9,20 @@ It's almost completely functional. It's current features include:
  - Logging in
  - Viewing a list of all projects
  - Viewing a single project's page
+ - Adding links to a project, e.g. GitHub
 
 There are a few things left to do:
 
- - Adding links to a project, e.g. GitHub
  - Custom CSS on your project's page
  - Maybe even custom HTML
- - Host it somewhere (possible Heroku)?
+ - Host it somewhere (possibly Heroku)?
  - Improve security: use secure cookies, hash password before sending it to the server, etc...
 
 ![](stuff/project.png)
 
 ## Installing it locally
 
-First, you'll need to make a database. I'm using [MAMP](https://www.mamp.info/en/), but you can use anything (XAMPP, plain MySQL server, etc...) Here's a schema to use (exported from phpMyAdmin):
-
-```sql
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-CREATE TABLE `projects` (
-  `project_id` int(11) NOT NULL,
-  `title` tinytext NOT NULL,
-  `description` text NOT NULL,
-  `content` text NOT NULL,
-  `date_created` datetime NOT NULL,
-  `author` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
-CREATE TABLE `sessions` (
-  `session_id` bigint(11) NOT NULL,
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
-CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
-  `user_name` tinytext NOT NULL,
-  `display_name` tinytext NOT NULL,
-  `password_hash` text NOT NULL,
-  `date_joined` date NOT NULL,
-  `profile_picture` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
-ALTER TABLE `projects`
-  ADD PRIMARY KEY (`project_id`),
-  ADD KEY `AUTHOR` (`author`);
-
-ALTER TABLE `sessions`
-  ADD PRIMARY KEY (`session_id`),
-  ADD KEY `USER_ID` (`user_id`);
-
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
-
-ALTER TABLE `projects`
-  MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-```
-
-I've also put this code [here](stuff/schema.sql), for easy importing.
+First, you'll need to make a database. I'm using [MAMP](https://www.mamp.info/en/), but you can use anything (XAMPP, plain MySQL server, etc...) Use [the schema](stuff/schema.sql).
 
 This will create the three necessary tables: _projects_, _sessions_, and _users_, but won't add any rows to them.
 

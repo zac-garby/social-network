@@ -21,8 +21,15 @@ CREATE TABLE `users` (
   `display_name` tinytext NOT NULL,
   `password_hash` text NOT NULL,
   `date_joined` date NOT NULL,
-  `profile_picture` text NOT NULL
+  `profile_picture` text NOT NULL,
+  `github_username` tinytext NOT NULL,
+  `homepage_url` tinytext NOT NULL,
+  `link_1` tinytext NOT NULL,
+  `link_2` tinytext NOT NULL,
+  `link1_name` tinytext NOT NULL,
+  `link2_name` tinytext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
 
 ALTER TABLE `projects`
   ADD PRIMARY KEY (`project_id`),
@@ -35,8 +42,8 @@ ALTER TABLE `sessions`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
-ALTER TABLE `projects`
-  MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
+ALTER TABLE `projects`
+  MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
