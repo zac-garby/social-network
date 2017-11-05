@@ -1,0 +1,21 @@
+input.inline {
+    display: inline-block;
+    width: 500px;
+    margin-bottom: 0;
+}
+
+input.name {
+    width: 200px;
+    margin-right: 5px;
+    text-align: right;
+}
+
+input:disabled {
+    background-color: transparent;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+}

@@ -26,6 +26,38 @@
 
             <hr />
 
+            {{ if or .User.GithubUsername (or .User.HomepageURL (or (and .User.Link1Name .User.Link1URL) (and .User.Link2Name .User.Link2URL))) }}
+
+            <ul class="links">
+                <li class="title">External Links:</li>
+
+                {{ if .User.GithubUsername }}
+                    <li>
+                        <a href="https://github.com/{{ .User.GithubUsername }}">GitHub</a>
+                    </li>
+                {{ end }}
+
+                {{ if .User.HomepageURL }}
+                    <li>
+                        <a href="{{ .User.HomepageURL }}">Homepage</a>
+                    </li>
+                {{ end }}
+
+                {{ if and .User.Link1Name .User.Link1URL }}
+                    <li>
+                        <a href="{{ .User.Link1URL }}">{{ .User.Link1Name }}</a>
+                    </li>
+                {{ end }}
+
+                {{ if and .User.Link2Name .User.Link2URL }}
+                    <li>
+                        <a href="{{ .User.Link2URL }}">{{ .User.Link2Name }}</a>
+                    </li>
+                {{ end }}
+            </ul>
+
+            {{ end }}
+
             <ul class="projects">
                 {{ range .Projects }}
                     <li

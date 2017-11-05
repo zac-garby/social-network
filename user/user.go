@@ -21,6 +21,13 @@ type User struct {
 	PasswordHash   string
 	DateJoined     string
 	ProfilePicture string
+
+	GithubUsername string
+	HomepageURL    string
+	Link1Name      string
+	Link1URL       string
+	Link2Name      string
+	Link2URL       string
 }
 
 // GetUser queries the database for a user whose
@@ -35,6 +42,12 @@ func GetUser(db *sql.DB, id int) (*User, error) {
 		&user.PasswordHash,
 		&user.DateJoined,
 		&user.ProfilePicture,
+		&user.GithubUsername,
+		&user.HomepageURL,
+		&user.Link1URL,
+		&user.Link2URL,
+		&user.Link1Name,
+		&user.Link2Name,
 	)
 
 	return user, err
@@ -52,6 +65,12 @@ func GetUserByUsername(db *sql.DB, username string) (*User, error) {
 		&user.PasswordHash,
 		&user.DateJoined,
 		&user.ProfilePicture,
+		&user.GithubUsername,
+		&user.HomepageURL,
+		&user.Link1URL,
+		&user.Link2URL,
+		&user.Link1Name,
+		&user.Link2Name,
 	)
 
 	return user, err
@@ -79,6 +98,12 @@ func GetAllUsers(db *sql.DB) ([]*User, error) {
 			&user.PasswordHash,
 			&user.DateJoined,
 			&user.ProfilePicture,
+			&user.GithubUsername,
+			&user.HomepageURL,
+			&user.Link1URL,
+			&user.Link2URL,
+			&user.Link1Name,
+			&user.Link2Name,
 		); err != nil {
 			return users, err
 		}
@@ -121,14 +146,33 @@ func Update(db *sql.DB, u *User) error {
 	UPDATE users
 	SET user_name = ?,
 		display_name = ?,
-		profile_picture = ?
+		profile_picture = ?,
+		github_username = ?,
+		homepage_url = ?,
+		link_1 = ?,
+		link1_name = ?,
+		link_2 = ?,
+		link2_name = ?
 	WHERE users.user_id = ?`)
 
 	if err != nil {
 		return err
 	}
 
-	_, err = stmt.Exec(u.Username, u.DisplayName, u.ProfilePicture, u.ID)
+	_, err = stmt.Exec(
+		u.Username,
+		u.DisplayName,
+		u.ProfilePicture,
+		u.GithubUsername,
+		u.HomepageURL,
+		u.Link1URL,
+		u.Link1Name,
+		u.Link2URL,
+		u.Link2Name,
+
+		u.ID,
+	)
+
 	if err != nil {
 		return err
 	}
