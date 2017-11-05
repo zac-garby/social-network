@@ -42,22 +42,22 @@
                 <ul class="links">
                     <li>
                         <input type="text" class="name inline" value="GitHub" disabled>
-                        <input type="text" name="gh-user" class="inline" placeholder="Username">
+                        <input type="text" name="gh-user" class="inline" placeholder="{{.User.GithubUsername}}">
                     </li>
 
                     <li>
                         <input type="text" class="name inline" value="Homepage" disabled>
-                        <input type="text" name="homepage" class="inline" placeholder="URL">
+                        <input type="text" name="homepage" class="inline" placeholder="{{.User.HomepageURL}}">
                     </li>
 
                     <li>
-                        <input type="text" name="linkname-1" class="name inline" placeholder="Link 1">
-                        <input type="text" name="url-1" class="inline" placeholder="URL">
+                        <input type="text" name="linkname-1" class="name inline" placeholder="{{.User.Link1Name}}">
+                        <input type="text" name="url-1" class="inline" placeholder="{{.User.Link1URL}}">
                     </li>
 
                     <li>
-                        <input type="text" name="linkname-2" class="name inline" placeholder="Link 2">
-                        <input type="text" name="url-2" class="inline" placeholder="URL">
+                        <input type="text" name="linkname-2" class="name inline" placeholder="{{.User.Link2Name}}">
+                        <input type="text" name="url-2" class="inline" placeholder="{{.User.Link2URL}}">
                     </li>
                 </ul>
 
