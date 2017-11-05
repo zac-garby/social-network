@@ -10,6 +10,7 @@
         <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">        
         <link rel="stylesheet" href="../public/styles/index.css">
         <link rel="stylesheet" href="../public/user/styles/index.css">
+        <link rel="stylesheet" href="../public/edit-profile/styles/index.css">        
     </head>
     <body>
         {{ template "nav" .User }}
@@ -35,6 +36,30 @@
 
                 <label for="username">Profile Picture:</label>
                 <input class="sm" type="text" name="profilepicture" placeholder="{{.User.ProfilePicture}}" />
+
+                <br />
+
+                <ul class="links">
+                    <li>
+                        <input type="text" class="name inline" value="GitHub" disabled>
+                        <input type="text" class="inline" placeholder="Username">
+                    </li>
+
+                    <li>
+                        <input type="text" class="name inline" value="Homepage" disabled>
+                        <input type="text" class="inline" placeholder="URL">
+                    </li>
+
+                    <li>
+                        <input type="text" class="name inline" placeholder="Link 1">
+                        <input type="text" class="inline" placeholder="URL">
+                    </li>
+
+                    <li>
+                        <input type="text" class="name inline" placeholder="Link 2">
+                        <input type="text" class="inline" placeholder="URL">
+                    </li>
+                </ul>
 
                 <input type="submit" value="Submit">
             </form>
