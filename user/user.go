@@ -21,6 +21,13 @@ type User struct {
 	PasswordHash   string
 	DateJoined     string
 	ProfilePicture string
+
+	GithubUsername string
+	HomepageURL    string
+	Link1Name      string
+	Link1URL       string
+	Link2Name      string
+	Link2URL       string
 }
 
 // GetUser queries the database for a user whose
@@ -35,6 +42,12 @@ func GetUser(db *sql.DB, id int) (*User, error) {
 		&user.PasswordHash,
 		&user.DateJoined,
 		&user.ProfilePicture,
+		&user.GithubUsername,
+		&user.HomepageURL,
+		&user.Link1URL,
+		&user.Link2URL,
+		&user.Link1Name,
+		&user.Link2Name,
 	)
 
 	return user, err
@@ -52,6 +65,12 @@ func GetUserByUsername(db *sql.DB, username string) (*User, error) {
 		&user.PasswordHash,
 		&user.DateJoined,
 		&user.ProfilePicture,
+		&user.GithubUsername,
+		&user.HomepageURL,
+		&user.Link1URL,
+		&user.Link2URL,
+		&user.Link1Name,
+		&user.Link2Name,
 	)
 
 	return user, err
@@ -79,6 +98,12 @@ func GetAllUsers(db *sql.DB) ([]*User, error) {
 			&user.PasswordHash,
 			&user.DateJoined,
 			&user.ProfilePicture,
+			&user.GithubUsername,
+			&user.HomepageURL,
+			&user.Link1URL,
+			&user.Link2URL,
+			&user.Link1Name,
+			&user.Link2Name,
 		); err != nil {
 			return users, err
 		}

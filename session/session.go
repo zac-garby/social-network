@@ -54,6 +54,12 @@ func GetUser(db *sql.DB, sess int) (*user.User, error) {
 		&u.PasswordHash,
 		&u.DateJoined,
 		&u.ProfilePicture,
+		&u.GithubUsername,
+		&u.HomepageURL,
+		&u.Link1URL,
+		&u.Link2URL,
+		&u.Link1Name,
+		&u.Link2Name,
 	)
 
 	return u, err
